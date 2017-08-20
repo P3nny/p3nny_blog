@@ -34,14 +34,20 @@ and is wrapped around the whole page content, except for the footer in this exam
 
               <div class="w3-card-4 w3-margin w3-white">
                   <div class="w3-container">
-                      <h3><a href="">{{ post.title }}</a></h3>        
+                      <h2>{{ post.title }}</h2>        
                       <h5>Published: <span class="w3-opacity"> {{ post.published_date }} </span></h5>
                   </div>          
           
                    <div class="w3-container">
+                       <p><b>{{ post.teaser|linebreaksbr }}</b></p>
                        <p>{{ post.text|linebreaksbr }}</p>
                   </div>
-                   
+                
+                  <div class="w3-row">
+                        <div class="w3-col m8 s12">     
+                  <p><button class="w3-button w3-padding-large w3-white w3-border"><b>Mehr: <a href="">{{ post.title }}</a></b></button></p>
+                        </div>
+                  </div>        
               </div>
       
         {% endfor %}
@@ -56,7 +62,7 @@ and is wrapped around the whole page content, except for the footer in this exam
   <div class="w3-card-2 w3-margin w3-margin-top">
   <img src="http://www.worthandlung.de/bilder/penny.jpg" style="width:100%">
     <div class="w3-container w3-white">
-      <h4><b>Code-loving journalist</b></h4>
+      <h4><b>CODE-LOVING JOURNALIST</b></h4>
       <p>Working as a freelance web- and radio-journalist for a public broadcaster, I fell in love with programming. I'm Ex-Data-Fellow @correctiv and Co Lab-Lead @codeforcologne. I'm conducting workshops to share my experiences and passion with girls, journalists and other underrepresented groups in tech.</p>
     </div>
   </div>
