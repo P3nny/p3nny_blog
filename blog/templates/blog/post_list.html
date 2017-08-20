@@ -1,89 +1,19 @@
-<!DOCTYPE html>
-<html>
-<title>worthandlung. Patricia Ennenbach</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<style>
-body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
-</style>
-<body class="w3-black">
+{% extends 'blog/base.html' %}
 
-<!-- w3-content defines a container for fixed size centered content, 
-and is wrapped around the whole page content, except for the footer in this example -->
-<div class="w3-content" style="max-width:1400px">
-
-<!-- Header -->
-<header class="w3-container w3-center w3-padding-32"> 
-  <h1><b>WORTHANDLUNG</b></h1>
-  <p><b>PATRICIA ENNENBACH</b></p>
-</header>
-
-<!-- Grid -->
-<div class="w3-row">
-
-
-<!-- Blog entries -->
-<div class="w3-col l8 s12">
-
+{% block content %}
         {% for post in posts %}
 
         <!-- Blog entry -->
 
               <div class="w3-card-4 w3-margin w3-white">
                   <div class="w3-container">
-                      <h2>{{ post.title }}</h2>        
-                      <h5>Published: <span class="w3-opacity"> {{ post.published_date }} </span></h5>
-                  </div>          
-          
-                   <div class="w3-container">
+                      <h2> <b><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></b></h2>
                        <p><b>{{ post.teaser|linebreaksbr }}</b></p>
-                       <p>{{ post.text|linebreaksbr }}</p>
+                       <p>Published: <span class="w3-opacity"> {{ post.published_date }} </span></p>
                   </div>
-                
-                  <div class="w3-row">
-                        <div class="w3-col m8 s12">     
-                  <p><button class="w3-button w3-padding-large w3-white w3-border"><b>Mehr: <a href="">{{ post.title }}</a></b></button></p>
-                        </div>
-                  </div>        
+                       
               </div>
       
         {% endfor %}
+{% endblock %}
 
-</div>
-
-<!-- Introduction menu -->
-
-<div class="w3-col l4">
-
-  <!-- About Card -->
-  <div class="w3-card-2 w3-margin w3-margin-top">
-  <img src="http://www.worthandlung.de/bilder/penny.jpg" style="width:100%">
-    <div class="w3-container w3-white">
-      <h4><b>CODE-LOVING JOURNALIST</b></h4>
-      <p>Working as a freelance web- and radio-journalist for a public broadcaster, I fell in love with programming. I'm Ex-Data-Fellow @correctiv and Co Lab-Lead @codeforcologne. I'm conducting workshops to share my experiences and passion with girls, journalists and other underrepresented groups in tech.</p>
-    </div>
-  </div>
-
-<!-- END Introduction Menu -->
-</div>
-
-<!-- END GRID -->
-</div><br>
-
-<!-- END w3-content -->
-</div><hr>
-
-<!-- Footer -->
- <footer class="w3-content w3-padding-64 w3-text-grey w3-xlarge">
-    <a href="https://imgpublic.com/user/p3nnylove/1781223274/" target="_blank" class="w3-hover-text-green"><i class="fa fa-instagram w3-hover-opacity"></i></a>
-    <a href="https://twitter.com/pen1710?lang=de" target="_blank" class="w3-hover-text-green"><i class="fa fa-twitter w3-hover-opacity"></i></a>
-    <p class="w3-medium">Patricia Ennenbach, Alte Forstraße 13, 51107 Köln</p>
-    <p class="w3-medium">Made with love, Django and <a href="https://www.w3schools.com/w3css/default.asp" target="_blank" class="w3-hover-text-green">w3.css</a></p>
-  <!-- End footer -->
-  </footer>
-
-</body>
-</html>

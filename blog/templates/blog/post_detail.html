@@ -1,0 +1,20 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+
+              <div class="w3-card-4 w3-margin w3-white">
+                  <div class="w3-container">
+                      <h2><b>{{ post.title }}</b></h2>        
+                      <h5>Published: <span class="w3-opacity"> {{ post.published_date }} </span></h5>
+                  </div>          
+          
+                   <div class="w3-container">
+                       <p><b>{{ post.teaser|linebreaksbr }}</b></p>
+                       
+                       <p>{{ post.text|linebreaksbr }}</p>
+                       <p><a href="{% url 'post_list' %}">zurück</a></p>
+                  </div>
+                
+              </div>
+      
+{% endblock %}
